@@ -3,15 +3,16 @@
 
 ## 2 使用wallet-cli
 wallet-cli项目代码托管在：`https://github.com/tronprotocol/wallet-cli`  
-wallet-cli是一个基于命令行的钱包应用，我们简单介绍wallet-cli的构建过程，如果你已经对此很熟悉了，可以略过这个部分。  
-简单来说，使用wallet-cli软件进行需要完成这几步：  
+wallet-cli是一个基于命令行的钱包应用，我们简单介绍wallet-cli的构建过程，如果你已经对此很熟悉了，可以略过这个部分。简单来说，使用wallet-cli软件进行需要完成这几步：  
 1）**下载项目源代码**  
 ```test
 git clone https://github.com/tronprotocol/wallet-cli.git
 ```
 
 2）**修改配置文件**  
-你可以在这个[页面](http://nileex.io/status/getStatusPage)找到[Nile测试网](http://nileex.io)提供的公开可用节点，并在src/main/resources/config.conf这个配置文件中对fullnode中的ip.list进行修改。  
+你可以在这个[页面](http://nileex.io/status/getStatusPage)找到[Nile测试网](http://nileex.io)提供的公开可用节点，
+
+并在src/main/resources/config.conf这个配置文件中对fullnode中的ip.list进行修改。  
 ![](./images/nile_shielded_usage1.png)
 3）**将项目源代码进行构建**  
 ```test
@@ -31,11 +32,13 @@ $ java -jar wallet-cli.jar
 *以下所有命令的演示过程都是在wallet-cli这个软件中进行的。*  
 
 ### 2.1 匿名钱包和匿名地址
+匿名钱包和匿名地址是一对多的关系，即一个匿名钱包中可以创建多个匿名地址。另外，匿名地址可以从匿名钱包中被导出，并且匿名地址也可以被导入到匿名钱包中。下面介绍一些相关的命令。
 #### 2.1.1 创建匿名地址
-执行命令`GenerateShieldedAddress`创建匿名地址，如果此时本地还没有匿名钱包，这个命令会首先创建一个匿名钱包，然后再创建一个匿名地址。  
+> 执行命令`GenerateShieldedAddress`创建匿名地址，如果此时本地还没有匿名钱包，这个命令会首先创建一个匿名钱包，然后再创建一个匿名地址。  
 ![](./images/nile_shielded_usage2.png)
-至此成功创建了1个匿名地址:`ztron13ef0cjxz536snelt0rdnyqe80h2qq8j2zsh8kx7fqm4grh35rnnycx5rmewq6xwsn5elzfyshrx`  
-**注意：`GenerateShieldedAddress n`命令也支持一次性创建n个匿名地址，如一次性创建5个匿名地址的命令**
+至此成功创建了1个匿名地址:  
+`ztron13ef0cjxz536snelt0rdnyqe80h2qq8j2zsh8kx7fqm4grh35rnnycx5rmewq6xwsn5elzfyshrx`  
+**注意：`GenerateShieldedAddress n`命令也支持一次性创建n个匿名地址，如果不填写参数n则默认创建1个匿名地址，如一次性创建5个匿名地址的命令**
 ```test
 GenerateShieldedAddress 5 
 ```
