@@ -11,9 +11,9 @@ git clone https://github.com/tronprotocol/wallet-cli.git
 
 2）**修改配置文件**  
 你可以在这个[页面](http://nileex.io/status/getStatusPage)找到[Nile测试网](http://nileex.io)提供的公开可用节点，
-
+![](./images/nile_public_fullnode.png)
 并在src/main/resources/config.conf这个配置文件中对fullnode中的ip.list进行修改。  
-![](./images/nile_shielded_usage1.png)
+![](./images/nile_config_conf.png)
 3）**将项目源代码进行构建**  
 ```test
 $ cd wallet-cli
