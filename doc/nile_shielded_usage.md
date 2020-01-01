@@ -5,21 +5,21 @@
 wallet-cli项目代码托管在：`https://github.com/tronprotocol/wallet-cli`  
 wallet-cli是一个基于命令行的钱包应用，我们简单介绍wallet-cli的构建过程，如果你已经对此很熟悉了，可以略过这个部分。  
 简单来说，使用wallet-cli软件进行需要完成这几步：  
-1）下载项目源代码  
+1）**下载项目源代码**  
 ```test
 git clone https://github.com/tronprotocol/wallet-cli.git
 ```
 
-2）修改配置文件  
+2）**修改配置文件**  
 你可以在这个[页面](http://nileex.io/status/getStatusPage) 找到[Nile测试网](http://nileex.io)提供的公开可用节点，并在src/main/resources/config.conf这个配置文件中对fullnode中的ip.list进行修改。  
 ![](./images/nile_shielded_usage1.png)
-3）将项目源代码进行构建
+3）**将项目源代码进行构建**  
 ```test
 $ cd wallet-cli
 $ ./gradlew build
 ```
 
-4）使用构建好的wallet-cli.jar包
+4）**使用构建好的wallet-cli.jar**
 ```test
 $ cd build/libs
 $ java -jar wallet-cli.jar
@@ -28,32 +28,32 @@ $ java -jar wallet-cli.jar
 如果你在构建wallet-cli软件的过程中遇到任何问题，请参考[wallet-cli使用教程](https://github.com/tronprotocol/wallet-cli#get-started)，如果你看到以下输出，说明wallet-cli软件已经成功运行。
 ![](./images/nile_shielded_usage1.png)
 
-以下所有命令的演示过程都是在wallet-cli这个软件中进行的。  
+*以下所有命令的演示过程都是在wallet-cli这个软件中进行的。*  
 
 ### 2.1 匿名钱包和匿名地址
 #### 2.1.1 创建匿名地址
 执行命令`GenerateShieldedAddress`创建匿名地址，如果此时本地还没有匿名钱包，这个命令会首先创建一个匿名钱包，然后再创建匿名地址  
 ![](./images/nile_shielded_usage2.png)
-至此成功创建了1个匿名地址： `ztron13ef0cjxz536snelt0rdnyqe80h2qq8j2zsh8kx7fqm4grh35rnnycx5rmewq6xwsn5elzfyshrx`
+至此成功创建了1个匿名地址： `ztron13ef0cjxz536snelt0rdnyqe80h2qq8j2zsh8kx7fqm4grh35rnnycx5rmewq6xwsn5elzfyshrx`  
 **注意：`GenerateShieldedAddress n`命令也支持一次性创建n个匿名地址，如一次性创建5个匿名地址的命令**
 ```test
 GenerateShieldedAddress 5 
 ```
 此时，你可以尝试查看之前已经创建的匿名地址。
 #### 2.1.2 查看匿名地址  
-执行命令`ListShieldedAddress`可以查看匿名钱包中已经创建的匿名地址。
+> 执行命令`ListShieldedAddress`可以查看匿名钱包中已经创建的匿名地址。  
 ![](./images/nile_shielded_usage3.png)
 如果你重新运行wallet-cli程序，可以通过下面命令登陆到已经创建成功的本地钱包。
 #### 2.1.3 登陆匿名钱包  
-执行命令LoadShieldedWallet登陆本地的匿名钱包。
+> 执行命令LoadShieldedWallet登陆本地的匿名钱包。  
 ![](./images/nile_shielded_usage4.png)
 
 当然，你有时可能需要将本地的匿名地址同时备份到其他匿名钱包中，这可通过以下两个命令完成： 
 #### 2.1.4 导出匿名地址  
-- 在本地钱包执行命令`BackupShieldedAddress`将匿名地址进行导出:
+> 在本地钱包执行命令`BackupShieldedAddress`将匿名地址进行导出:  
 ![](./images/nile_shielded_usage5.png)
 #### 2.1.5 导入匿名地址  
-- 在其他匿名钱包中执行`ImportShieldedAddress`命令将该匿名地址进行导入:  
+> 在其他匿名钱包中执行`ImportShieldedAddress`命令将该匿名地址进行导入:  
 ![](./images/nile_shielded_usage6.png)
 **警告:00645e78310c0619a62defeb5be3d48ba183f66e249c63e2eed4164e072e87ea8e52fc48c2a47509e7eb78这个字符串是重要的秘密信息，请不要泄露给其他人。**
 
@@ -78,14 +78,14 @@ SendShieldedCoin publicFromAddress fromAmount shieldedInputNum input1 input2 inp
 ```
 
 下面是这些参数的含义：  
-`publicFromAddress` 转出公开地址，公开地址转账给匿名地址时使用，不需要则设置为 null  
-`fromAmount` 转出到透明地址金额，如果`publicFromAddress`为null，该变量必须设置为0  
+`publicFromAddress` 转出公开地址，公开地址转账给匿名地址时使用，不需要则设置为null。  
+`fromAmount` 转出到透明地址金额，如果`publicFromAddress`为null，该变量必须设置为0。  
 `shieldedInputNum` 转出匿名note的个数，可以设置成0或者1。  
-`input1 input2 input3 ...` 匿名note在本地的序号，个数跟`shieldedInputNum`保存一致，如果`shieldedInputNum`为0，则该变量不需要设置  
-`publicToAddress` 转入公开地址，匿名地址转账给公开地址时使用  
-`toAmount` 转入到公开地址金额  
-`shieldedOutputNum` 转入匿名note的个数  
-`shieldedAddress1` 匿名地址  
+`input1 input2 input3 ...` 匿名note在本地的序号，个数跟`shieldedInputNum`保存一致，如果`shieldedInputNum`为0，则这些变量不需要设置。  
+`publicToAddress` 转入公开地址，匿名地址转账给公开地址时使用。  
+`toAmount` 转入到公开地址金额。  
+`shieldedOutputNum` 转入匿名note的个数。  
+`shieldedAddress1` 转入匿名地址。  
 `amount1` 转入到匿名地址`shieldedAddress1`的金额  
 `memo1` note的备注（最多512个字节）可以在不需要时设置为null  
 
@@ -97,7 +97,6 @@ SendShieldedCoin publicFromAddress fromAmount shieldedInputNum input1 input2 inp
 SendShieldedCoin TU23LEoPKbC5xKXTEJzLFp7R2ZEWbuKiXq 210000000 0 null 0 2 ztron16uz8hugh397ndwrxxxfr6kne2jc3zry4msdls4rw8d0m79v9w0tus9czwafys8qa9ynpkzlz4ym 120000000 first ztron13ef0cjxz536snelt0rdnyqe80h2qq8j2zsh8kx7fqm4grh35rnnycx5rmewq6xwsn5elzfyshrx 80000000 second
 ```
 ![](./images/nile_shielded_usage9.png)
-<br>
 注意公开地址转出，需要额外进行签名的步骤，如果成功，可以看到
 ![](./images/nile_shielded_usage10.png)
 *命令解读*
