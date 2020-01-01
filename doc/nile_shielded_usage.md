@@ -112,8 +112,13 @@ SendShieldedCoin publicFromAddress fromAmount shieldedInputNum input1 input2 inp
 ```test
 SendShieldedCoin TU23LEoPKbC5xKXTEJzLFp7R2ZEWbuKiXq 210000000 0 null 0 2 ztron16uz8hugh397ndwrxxxfr6kne2jc3zry4msdls4rw8d0m79v9w0tus9czwafys8qa9ynpkzlz4ym 120000000 first ztron13ef0cjxz536snelt0rdnyqe80h2qq8j2zsh8kx7fqm4grh35rnnycx5rmewq6xwsn5elzfyshrx 80000000 second
 ```
-![](./images/nile_shielded_usage9.png)
-注意公开地址转出，需要额外进行签名的步骤，如果成功，可以看到以下结果：
+![](./images/nile_shielded_usage8.png)  
+  
+注意公开地址转出，需要额外进行签名的步骤，
+  
+![](./images/nile_shielded_usage9.png)  
+  
+如果成功，可以看到以下结果：
   
 ![](./images/nile_shielded_usage10.png)
   
@@ -169,4 +174,4 @@ sendshieldedcoin null 0 1 0 TU23LEoPKbC5xKXTEJzLFp7R2ZEWbuKiXq 110000000 0
 ![](./images/nile_shielded_usage16.png)
 
 ## 支持
-本文尽可能向用户介绍wallet-cli软件的相关内容，并着重介绍通过wallet-cli进行匿名转账的一些基本命令，如果你有任何疑问或发现任何疑问，欢迎加入我们的讨论 [Gitter](https://gitter.im/tronprotocol/wallet-cli)
+本文尽可能向用户介绍wallet-cli软件的相关内容，并着重介绍通过wallet-cli进行匿名转账的一些基本命令，如果你有任何疑问或发现任何错误，欢迎加入我们的讨论 [Gitter](https://gitter.im/tronprotocol/wallet-cli)
