@@ -252,8 +252,14 @@ sendshieldedcoin null 0 1 0 TU23LEoPKbC5xKXTEJzLFp7R2ZEWbuKiXq 110000000 0
 > *可以验证 120 TRZ = 110 TRZ + 10 TRZ。*  
   
 如果命令执行成功，再通过执行`listshieldednote 1`命令可以看到之前的UnSpend状态的120TRZ的note已经变为Spent状态了。  
-  
-![](./images/nile_shielded_usage16.png)
+
+```test
+wallet> listshieldednote 1
+All notes list like:
+ztron16uz8hugh397ndwrxxxfr6kne2jc3zry4msdls4rw8d0m79v9w0tus9czwafys8qa9ynpkzlz4ym 70000000 f95185394430b49a865488a7ffc8c7e4306eecd6fcd94d9bdc3018a810879a49 0 UnSpent third
+ztron13ef0cjxz536snelt0rdnyqe80h2qq8j2zsh8kx7fqm4grh35rnnycx5rmewq6xwsn5elzfyshrx 80000000 ecd3149beb35b3dd817a1f26ebd5a471a3273429af643484f07bece892d4e45b 1 Spent second
+ztron16uz8hugh397ndwrxxxfr6kne2jc3zry4msdls4rw8d0m79v9w0tus9czwafys8qa9ynpkzlz4ym 120000000 ecd3149beb35b3dd817a1f26ebd5a471a3273429af643484f07bece892d4e45b 0 Spent first
+```
 
 ## 支持
 本文尽可能向用户介绍wallet-cli软件的相关内容，并着重介绍通过wallet-cli进行匿名转账的一些基本命令，如果你有任何疑问或发现任何错误，欢迎加入我们的讨论 [Gitter](https://gitter.im/tronprotocol/wallet-cli)
